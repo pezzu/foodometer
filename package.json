@@ -3,17 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.0",
-    "web-vitals": "^0.2.4"
+    "tailwindcss": "^1.9.6"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "yarn run build:style && yarn run build:client",
+    "build:client": "react-scripts build",
+    "build:styles": "tailwindcss build src/styles/tailwind.css -o src/styles/index.css",
+    "client": "react-scripts start",
+    "styles": "tailwindcss build src/styles/tailwind.css -o src/styles/index.css --watch",
+    "dev": "yarn run build:styles && yarn run client",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
